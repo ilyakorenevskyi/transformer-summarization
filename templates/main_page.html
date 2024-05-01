@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformer Summarization</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="stylesheet" href = "{% static 'css/style.css'  %} ">
+</head>
+<body>
+  <h1>Transformer Summarization</h1>
+  <div class="container">
+    <label for="language">Choose Language:</label>
+    <select id="language">
+      <option value="en">English</option>
+      <option value="uk">Ukrainian</option>
+    </select>
+
+    <label for="model">Choose Model:</label>
+    <select id="model">
+    </select>
+
+    <label for="inputText">Enter text to summarize:</label>
+    <textarea id="inputText" rows="10" placeholder="Paste your text here..."></textarea>
+
+    <button id="generateSummary">Generate Summary</button>
+    <div id="summary"></div>
+  </div>
+
+<script src="{% static 'scripts/script.js' %}"> </script>
+</body>
+</html>
