@@ -1,7 +1,8 @@
 from transformers import pipeline, AutoModelForSeq2SeqLM, AutoTokenizer, BartForConditionalGeneration
 
 def summarize_text(language, model_name, text):
-    summary = " "
+    summary = "Incorrect model"
+
     if model_name == "T5":
         model = AutoModelForSeq2SeqLM.from_pretrained("models/trained_t5_EN")
         tokenizer = AutoTokenizer.from_pretrained("models/trained_t5_EN")
@@ -15,5 +16,5 @@ def summarize_text(language, model_name, text):
         return summary
 
     sum_pipeline = pipeline("summarization", model=model, tokenizer=tokenizer, max_new_tokens=64)
-    summary = sum_pipeline("summarize: " + text)[0]["summary_text"]
+    summary = sum_pipeline(text)[0]["summary_text"]
     return summary
